@@ -22,13 +22,15 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 
 header.top{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
 @supports (background:color-mix(in srgb,red 50%,transparent)){header.top{background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
-header.top .bar{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;padding-bottom:.75rem}
-header.top strong{font-weight:600}
+header.top .bar{display:flex;align-items:center;gap:1.25rem;padding-top:.75rem;padding-bottom:.75rem}
+header.top strong{font-weight:600;margin-right:auto}
+.actions{display:flex;gap:.5rem}
 nav{display:flex;align-items:center;gap:1.25rem}
 nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
 nav a:hover{color:var(--accent)}
-#theme{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:999px;width:2.25rem;height:2.25rem;font-size:1.05rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.icon-btn{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:999px;width:2.25rem;height:2.25rem;font-size:1.05rem;line-height:1;cursor:pointer;display:grid;place-items:center}
 
+#menu{display:none}
 .hero{text-align:center;padding:5rem 0 4rem}
 h1{font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:0 0 1.25rem}
 .lede{font-size:1.15rem;color:var(--muted);max-width:36rem;margin:0 auto 2rem}
@@ -77,4 +79,20 @@ footer .links{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap}
 /* Smooth theme change: the class is added only while switching, so page load has no flash */
 html.theme-anim,html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:background-color .4s ease,color .4s ease,border-color .4s ease,box-shadow .4s ease!important}
 #theme span{display:inline-block;transition:transform .4s ease}
+/* ---- Mobile ---- */
+@media (max-width:760px){
+  #menu{display:grid}
+  header.top nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:.25rem 1.25rem 1rem;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.18)}
+  header.top nav.open{display:flex}
+  header.top nav a{padding:.9rem 0;font-size:1.05rem;color:var(--text);border-top:1px solid var(--line)}
+  header.top nav a:first-child{border-top:0}
+}
+@media (max-width:600px){
+  .wrap{padding:0 1.25rem}
+  .hero{padding:3rem 0 2.5rem}
+  .lede{font-size:1.05rem}
+  section{padding:2.25rem 0}
+  .btns a{flex:1 1 100%;text-align:center}
+  footer{padding:2.25rem 0 3rem}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}html.theme-anim,html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:none!important}#theme span{transition:none}.card,.skill{transition:none}.card:hover,.skill:hover{transform:none}}
