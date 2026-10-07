@@ -32,7 +32,10 @@
   function skills(obj){
     var root=document.getElementById("skills-list");if(!root)return;
     Object.keys(obj||{}).forEach(function(cat){
-      var d=el("div");d.appendChild(el("h3",null,cat));d.appendChild(tags(obj[cat]));root.appendChild(d);
+      var g=el("div","skill-group");g.appendChild(el("h3",null,cat));
+      var ul=el("ul","skill-list");
+      (obj[cat]||[]).forEach(function(s){ul.appendChild(el("li","skill",s))});
+      g.appendChild(ul);root.appendChild(g);
     });
   }
 
