@@ -1,13 +1,14 @@
 :root{
-  /* Accent: emerald. Light mode uses a deeper shade so text and buttons stay readable. */
-  --bg:#F6F9F8; --surface:#FFFFFF; --text:#0F1B2D; --muted:#4B5B6E; --line:#DCE5E2;
-  --accent:#047857; --accent-hover:#065F46; --accent-text:#FFFFFF; --accent-soft:rgba(4,120,87,.10);
+  /* Light: neutral white and gray. Accent: emerald (deeper shade for contrast on white). */
+  --bg:#FAFAFA; --surface:#FFFFFF; --text:#171717; --muted:#525252; --line:#E5E5E5;
+  --accent:#047857; --accent-hover:#065F46; --accent-text:#FFFFFF; --accent-soft:rgba(4,120,87,.08);
   --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif; --radius:12px;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0B1220;--surface:#111A2E;--text:#E6EDF5;--muted:#93A4BA;--line:#22304A;--accent:#34D399;--accent-hover:#6EE7B7;--accent-text:#04140E;--accent-soft:rgba(52,211,153,.12)}
+  :root:not([data-theme="light"]){--bg:#0F0F0F;--surface:#181818;--text:#EDEDED;--muted:#A1A1A1;--line:#2B2B2B;--accent:#34D399;--accent-hover:#6EE7B7;--accent-text:#07130E;--accent-soft:rgba(52,211,153,.12)}
 }
-:root[data-theme="dark"]{--bg:#0B1220;--surface:#111A2E;--text:#E6EDF5;--muted:#93A4BA;--line:#22304A;--accent:#34D399;--accent-hover:#6EE7B7;--accent-text:#04140E;--accent-soft:rgba(52,211,153,.12)}
+/* Dark: near-black with neutral gray surfaces, no blue tint. */
+:root[data-theme="dark"]{--bg:#0F0F0F;--surface:#181818;--text:#EDEDED;--muted:#A1A1A1;--line:#2B2B2B;--accent:#34D399;--accent-hover:#6EE7B7;--accent-text:#07130E;--accent-soft:rgba(52,211,153,.12)}
 ::selection{background:var(--accent);color:var(--accent-text)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
